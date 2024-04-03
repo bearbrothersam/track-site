@@ -1,0 +1,362 @@
+@use "../global" as *;
+
+#bread_crumb {
+  padding: 1px 5px 0 245px;
+  & ol {
+    margin: 0;
+    &:after,&:before{
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    & li {
+      font-size: 11px;
+      float: left;
+      &.sub {
+        padding-left: 10px;
+        &:before {
+          content: ">";
+          letter-spacing: 10px;
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+#main {
+  float: right;
+}
+
+section {
+  clear: both;
+  margin-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#content {
+  width: 715px;
+  float: left;
+  margin-bottom: 50px;
+  & .page_ttl {
+    display: block;
+    font-family: "Hiragino Kaku Gothic Pro W3", "ヒラギノ角ゴ Pro W3", Osaka, "MS P Gothic", "MSPゴシック", sans-serif;
+    height: 86px;
+    background: url(../img/page_title.jpg);
+    padding: 40px 8px 15px 35px;
+    margin: 5px 0 25px;
+    font-size: 350%;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.2);
+    font-style: oblique;
+    border: none;
+  }
+  & .clearfix {
+    & h2 {
+      display: block;
+      color: #333;
+      font-weight: bold;
+      margin: 5px 0 10px 0;
+      font-size: 150%;
+      border-bottom: 3px solid #b073b2;
+      & .first-letter {
+        color: #e2007d;
+        font-size: 150%;
+      }
+    }
+    & p {
+      margin: 0.5em 0 1.2em;
+      line-height: 1.7;
+      &+h3 {
+        margin-top: 30px;
+        clear: both;
+      }
+    }
+    & table {
+      border: 1px solid #cccccc;
+      width: 100%;
+      & th {
+        color: #fff;
+        background: #78227C;
+        text-align: left;
+        width: 30%;
+        border: 1px solid #cccccc;
+        padding: 10px;
+      }
+      & td {
+        border: 1px solid #cccccc;
+        padding: 10px;
+      }
+    }
+    & h3 {
+      font-size: 120%;
+      font-weight: normal;
+      margin: 20px 0;
+      border-bottom: 1px solid #c8c5c5;
+      color: #555555;
+      padding: 0 0 5px;
+      position: relative;
+    }
+  }
+  & #page_top_link {
+    clear: both;
+    & a {
+      margin-top: 20px;
+      padding-left: 20px;
+      background: url(../img/arrow01.gif) 6px 5px no-repeat;
+      display: block;
+      float: right;
+      color: #555555;
+      text-decoration: none;
+    }
+  }
+}
+
+.slidebar {
+  width: 215px;
+  float: left;
+  margin-top: -20px;
+  & h2 {
+    margin: 0;
+  }
+  &-wrapper {
+    &__menu1 {
+      margin-bottom: 10px;
+      & ul {
+        & li {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    &__menu2 {
+      & ul {
+        margin-bottom: 20px;
+        & li {
+          & a {
+            display: block;
+            padding: 8px 30px 8px 10px;
+            overflow: hidden;
+            width: 200px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+            &:after {
+              content: " \f105";
+              font-family: FontAwesome;
+              margin-right: 5px;
+              color: #e2007d;
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+    &__sideCompany {
+      width: 184px;
+      padding: 7px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-bottom: 50px;
+      &__img {
+        margin: 0 0 10px 0;
+        & img {
+          max-width: 100%;
+          margin: 0;
+        }
+      }
+      & dl {
+        & dt {
+          color: #333;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 2px 0 2px 5px;
+          margin: 5px 0;
+          border-left: 5px solid #bfb3c2;
+          border-bottom: 1px dotted #c8c8c8;
+        }
+        & dd {
+          font-size: 90%;
+        }
+      }
+    }
+  }
+}
+
+// site-map-page
+.sitemap {
+  & li {
+    & a {
+      color: #333;
+      text-decoration: none;
+      padding: 5px 0;
+      display: inline-block;
+    }
+    & .children {
+      padding-left: 1em;
+      margin-bottom: 5px;
+      & li {
+        & a {
+          padding: 2px 0;
+          &:before {
+            content: "└";
+            display: inline-block;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// purchase-page
+.right {
+  clear: both;
+  & img {
+    margin: 0 0 10px 10px;
+    padding: 3px;
+    float: right;
+  }
+}
+
+// staff-page
+.article {
+  clear: both;
+  margin-bottom: 20px;
+  &__title {
+    font-size: 120%;
+    font-weight: normal;
+    margin: 20px 0;
+    border-bottom: 1px solid #C8C5C5;
+    color: #555555;
+    padding: 0 0 5px;
+    position: relative;
+  }
+  &__body {
+    &__content {
+      & .left {
+        clear: both;
+        & img {
+          margin: 0 10px 10px 0;
+          padding: 3px;
+          float: left;
+        }
+      }
+      & p {
+        margin: 0.5em 0 1.2em;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+// quality-page
+h2 {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  margin: 5px 0 10px 0;
+  font-size: 150%;
+  border-bottom: 3px solid #B073B2;
+  & .first-letter {
+    color: #e2007d;
+    font-size: 150%;
+  }
+}
+
+h3 {
+  font-size: 120%;
+  font-weight: normal;
+  margin: 20px 0;
+  border-bottom: 1px solid #C8C5C5;
+  color: #555555;
+  padding: 0 0 5px;
+  position: relative;
+}
+
+p {
+  margin: 0.5em 0 1.2em;
+  line-height: 1.7;
+  &+h3,&+h4 {
+    margin-top: 30px;
+    clear: both;
+  }
+}
+
+#content {
+  .disc {
+    & li {
+      margin: 10px;
+      margin-left: 1.5em;
+      list-style-type: disc;
+    }
+  }
+  .table-on {
+    border: 1px solid #cccccc;
+    width: 100%;
+    & th {
+    color: #fff;
+    background: #78227C;
+    text-align: left;
+    width: 30%;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    }
+    & td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    }
+  }
+}
+
+// tv-page
+#content {
+  & .youtube {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    & iframe {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// personal info protect page
+#content {
+  table {
+    border: 1px solid #cccccc;
+    width: 100%;
+    & th {
+      color: #fff;
+      background: #78227C;
+      text-align: left;
+      width: 30%;
+      border: 1px solid #cccccc;
+      padding: 10px;
+    }
+    & td {
+      border: 1px solid #cccccc;
+      padding: 10px;
+    }
+  }
+}
