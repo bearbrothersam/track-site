@@ -41,6 +41,27 @@ a:visited {
   visibility: hidden;
 }
 
+option {
+  font-weight: normal;
+  display: block;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+  white-space: nowrap;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.top_oneline {
+  @include mq(sp) {
+    line-height: 2.5;
+  }
+  @include mq(sp375) {
+   line-height: 3;
+  }
+}
+
 
 // .menu-pc_global-container:before,
 // .menu-pc_global-container:after {
@@ -58,11 +79,25 @@ a:visited {
   margin: 0 auto 10px;
   padding: 0 5px;
   overflow: hidden;
+  @include mq(pc) {
+    background: #fff;
+    padding: 0;
+    position: relative;
+  }
   &__top {
     background: url(../img/headBg.png) 0 0 no-repeat;
     width: 1000px;
     height: 230px;
     margin: 0 auto 17px;
+    @include mq(pc) {
+      background: none;
+      width: 100%;
+      height: 125px;
+    }
+    @include mq(sp) {
+      height: 100px;
+    }
+
     & h1 {
       width: auto;
       float: right;
@@ -70,6 +105,16 @@ a:visited {
       padding: 3px 5px 3px 0;
       font-weight: normal;
       color: $cBlack;
+      @include mq(pc) {
+        float: none;
+        background-color: #78227C;
+        color: #fff;
+        text-align: right;
+      }
+      @include mq(sp) {
+        // height: 15px;
+        font-size: 80%;
+      }
     }
     & .site-ttl {
       width: 322px;
@@ -77,19 +122,42 @@ a:visited {
       float: left;
       margin: 0;
       border: none;
+      @include mq(sp) {
+        width: 12.5rem;
+        padding: 5%;
+      }
       & a {
         display: block;
       }
+      & .site-logo_pc { 
+        @include mq(pc) {
+          display: none;
+        }
+      }
+      & .site-logo_sp { 
+        display: none;
+        @include mq(pc) {
+          display: block;
+        }
+
+      }
+
     }
     &__list {
       width: 590px;
       float: right;
       padding-top: 25px;
+      @include mq(pc) {
+        display: none;
+      }
     }
   }
   &__sns {
     width: 1000px;
     margin: 0 auto;
+    @include mq(pc) {
+      display: none;
+    }
     &__list {
       float: left;
       margin: -45px 0 0 0;
@@ -104,6 +172,9 @@ a:visited {
   &__nav {
     width: 1000px;
     margin: 0 auto;
+    @include mq(pc) {
+      display: none;
+    }
     &__list {
       float: right;
       margin: -40px 0 0 0;
@@ -134,14 +205,151 @@ a:visited {
       }
     }
   }
+  // sp用ナビメニュー
+  &__nav__sp {
+    display: none;
+    @include mq(pc) {
+    display: block;
+    // opacity: 0;
+    // visibility: hidden;
+    transform: translateX(100%);
+    transition: transform .3s;
+    z-index: 10;
+    text-align: center;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    &.is-active {
+      transform: translateX(0);
+    }
+    &__list1 {
+      margin-bottom: 1.5%;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      &__item {
+        margin-bottom: 5%;
+        line-height: 2.5;
+        & a {
+          display: block;
+          font-size: 1.5rem;
+          text-decoration: none;
+          color: #333;
+          @include mq(sp320) {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+    &__list2 {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include mq(sp) {
+        top: 55%;
+      } 
+      @include mq(sp400) {
+        top: 60%;
+      }
+      @include mq(sp320) {
+        top: 70%;
+      }
+    }
+    }
+  }
+}
+
+// ハンバーガーメニュ-用ボタン
+.openbtn-box {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  z-index: 11;
+  @include mq(sp) {
+    right: 30px;
+  }
+}
+.openbtn {
+  position: relative;
+	background:#78227C;
+	cursor: pointer;
+  width: 50px;
+  height:50px;
+	border-radius: 5px;
+  display: none;
+  @include mq(pc) {
+    display: block;
+  }
+  & span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	  background: #fff;
+  	width: 45%;
+    &:nth-of-type(1) {
+      top: 15px;
+    }
+    &:nth-of-type(2) {
+      top: 23px;
+    }
+    &:nth-of-type(3) {
+      top: 31px;
+    }
+  }
+  &.active {
+    & span {
+      &:nth-of-type(1) {
+        top: 18px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        top: 30px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+      }
+    }
+  }
 }
 
 #wrap {
   width: 960px;
   margin: 0 auto;
+  @include mq(pc) {
+    width: 90%;
+  }
+  @include mq(sp) {
+    width: 100%;
+  }
 }
 .main_image {
   padding: 0 5px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  @include mq(sp) {
+    height: 250px;
+  }
+  & .slide-img {
+   top: 0;
+   left: 0;
+   position: absolute;
+   height: 100%;
+  }
 }
 
 #container {
@@ -153,6 +361,11 @@ a:visited {
   width: 950px;
   margin-bottom: 50px;
   float: left;
+  @include mq(pc) {
+    width: 100%;
+    float: none;
+    margin: 0 auto 50px 0;
+  }
   &-wrapper {
     margin-bottom: 50px;
     position: relative;
@@ -172,6 +385,14 @@ a:visited {
           float: left;
           width: 470px;
           margin-bottom: 30px;
+          @include mq(pc) {
+            width: 100%;
+            & img {
+              width: 100%;
+              height: auto;
+              object-fit: cover;
+            }
+          }
         }
         & dd+dd {
           margin-left: 10px;
@@ -196,6 +417,13 @@ a:visited {
       position: relative;
       width: 928px;
       background: #fff;
+      @include mq(pc) {
+        display: block;
+        float: none;
+        width: 100%;
+        margin: 10px auto 0 auto;
+        padding: 0;
+      }
       & .cost {
         overflow: hidden;
         margin: 0;
@@ -208,14 +436,37 @@ a:visited {
         text-align: right;
         font-weight: bold;
         margin-bottom: 5px;
+        @include mq(pc) {
+          float: none;
+          display: flex;
+          justify-content: flex-end;
+          width: 50%;
+          margin: 1% auto;
+        }
+        @include mq(tab) {
+          width: 70%;
+        }
+        @include mq(sp) {
+          width: 90%;
+          font-size: 180%;
+        }
         & .tax {
           font-size: 50%;
           color: #333;
           margin-left: 0;
+          @include mq(pc) {
+            display: flex;
+            align-items: flex-end;
+          }
         }
       }
       &__image {
         float: left;
+        @include mq(pc) {
+          float: none;
+          display: flex;
+          justify-content: space-between;
+        }
         & .track-front__img,
         & .track-back__img {
           width: 200px;
@@ -224,12 +475,25 @@ a:visited {
           border: 1px solid #ccc;
           margin: 0 20px 0 0;
           float: left;
+          @include mq(pc) {
+            float: none;
+            width: 45%;
+            height: auto;
+            margin: 0;
+            & img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
         }
       }
       & dl {
         width: auto;
         float: left;
         padding-right: 10px;
+        @include mq(pc) {
+          float: none;
+        }
         & dt {
           background-color: #aaa;
           color: #fff;
@@ -241,6 +505,10 @@ a:visited {
           width: 110px;
           border-bottom: 1px solid #fff;
           clear: left;
+          @include mq(pc) {
+            float: none;
+            width: 100%;
+          }
           &:first-child {
             border-top: 1px solid #fff;
           }
@@ -256,6 +524,10 @@ a:visited {
           width: 130px;
           white-space: no wrap;
           text-overflow: ellipsis;
+          @include mq(pc) {
+            float: none;
+            width: 100%;
+          }
         }
       }
       & .feature {
@@ -266,6 +538,10 @@ a:visited {
         display: table;
         float: right;
         margin-top: 10px;
+        @include mq(pc) {
+          float: none;
+          width: 100%;
+        }
         & p {
           margin: 0.5em 0 1.2em;
           line-height: 1.7;
@@ -282,6 +558,12 @@ a:visited {
           display: table-cell;
           vertical-align: middle;
           text-align: center;
+          @include mq(pc) {
+            display: flex;
+            justify-content: center;
+            width: 25%;
+            margin: 0 auto;
+          }
         }
       }
     }
@@ -290,6 +572,9 @@ a:visited {
     background: url(../img/background_black.png) 142px 0 no-repeat;
     margin-bottom: 30px;
     position: relative;
+    @include mq(pc) {
+      display: none;
+    }
     & h2 {
       width: 142px;
       height: 174px;
@@ -303,6 +588,9 @@ a:visited {
         margin: 10px 20px;
         float: left;
         overflow: auto;
+        @include mq(pc) {
+          display: none;
+        }
       }
     }
   }
@@ -321,11 +609,17 @@ a:visited {
     width: 500px;
     height: 210px;
     float: left;
+    @include mq(pc) {
+      display: none;
+    }
   }
   & .site-logo {
     & p {
       margin: 20px 0;
-      float: right;
+      float: right; 
+      @include mq(pc) {
+       display: none;
+      }
     }
   }
 }
@@ -338,6 +632,12 @@ a:visited {
     padding-top: 20px;
     margin: 0 auto;
     text-align: center;
+    @include mq(pc) {
+      width: 100%;
+    }
+    @include mq(sp) {
+      font-size: 0.7rem;
+    }
     & ul {
       display: inline-block;
       & li {
@@ -357,12 +657,18 @@ a:visited {
     padding: 0 0 10px;
     clear: both;
     font-size: 12px;
+    @include mq(pc) {
+      width: 100%;
+    }
     & .copyright {
       color: #fff;
       font-size: 10px;
       text-align: center;
       padding-top: 20px;
       line-height: 1.7;
+      @include mq(sp) {
+        font-size: 0.6rem;
+      }
     }
   }
 }
