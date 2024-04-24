@@ -1,8 +1,19 @@
 'use strict';
 
 // メインビジュアルスライド
+// $(function() {
+// 	if(window.matchMedia('(min-width:1025px)').matches){
+// 		$('.main_image img:nth-child(n+2)').hide();
+// 	  setInterval(function() {
+// 		$(".main_image img:first-child").fadeOut(2000);
+// 		$(".main_image img:nth-child(2)").fadeIn(2000);
+// 		$(".main_image img:first-child").appendTo(".main_image");
+// 	},3000);
+// 	}
+// });
+
 $(function() {
-	$('.main_image img:nth-child(n+2)').hide();
+		$('.main_image img:nth-child(n+2)').hide();
 	  setInterval(function() {
 		$(".main_image img:first-child").fadeOut(2000);
 		$(".main_image img:nth-child(2)").fadeIn(2000);

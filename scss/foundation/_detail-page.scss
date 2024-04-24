@@ -56,6 +56,27 @@ table {
   border-bottom: 3px solid #b073b2;
 }
 
+.product_img {
+  display: flex;
+  justify-content: space-evenly;
+  @include mq(tab) {
+    margin-top: 5%;
+    flex-direction: column;
+    margin: 5% auto;
+    width: 90%;
+    & .Fr_image,& .Rr_image {
+      width: 100%;
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    & .Fr_image {
+      margin-bottom: 5%;
+    }
+  }
+}
+
 // ページリンク
 .page_navi {
   margin: 0;
@@ -590,6 +611,9 @@ p {
   }
   & #truck-area {
     margin-bottom: 30px;
+    @include mq(pc) {
+      display: none;
+    }
     & .area_nav {
       &_list {
         & li {
@@ -833,6 +857,12 @@ p {
       display: table;
       float: right;
       margin-top: 10px;
+      @include mq(tab) {
+        float: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       & p {
         margin-right: 10px;
         & a {
@@ -855,6 +885,10 @@ p {
   & .tour_detail {
     float: right;
     width: 280px;
+    @include mq(tab) {
+      float: none;
+      width: 100%;
+    }
     & table {
       border: none;
       font-size: 0.9em;
