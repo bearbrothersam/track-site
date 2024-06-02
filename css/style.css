@@ -234,6 +234,11 @@ option {
     display: block;
   }
 }
+.header__top .site-ttl .site-logo_sp img {
+  width: 57.5%;
+  height: 100%;
+  object-fit: cover;
+}
 .header__top__list {
   width: 590px;
   float: right;
@@ -371,7 +376,7 @@ option {
 
 .openbtn-box {
   position: absolute;
-  top: 60px;
+  top: 90px;
   right: 50px;
   z-index: 11;
 }
@@ -764,6 +769,9 @@ option {
   .content .site-logo p {
     display: none;
   }
+}
+.content .site-logo p img {
+  width: 300px;
 }
 
 .footer {

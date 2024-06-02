@@ -139,7 +139,11 @@ option {
         @include mq(pc) {
           display: block;
         }
-
+        & img {
+          width: 57.5%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
     }
@@ -268,7 +272,7 @@ option {
 // ハンバーガーメニュ-用ボタン
 .openbtn-box {
   position: absolute;
-  top: 60px;
+  top: 90px;
   right: 50px;
   z-index: 11;
   @include mq(sp) {
@@ -623,6 +627,9 @@ option {
       float: right; 
       @include mq(pc) {
        display: none;
+      }
+      & img {
+        width: 300px;
       }
     }
   }
